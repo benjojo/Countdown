@@ -1,0 +1,3 @@
+To turn a FLV stream into a MJPEG:
+
+.\ffmpeg.exe -i ..\countdowna.flv -vcodec mjpeg aaa.avi
