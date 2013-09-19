@@ -23,7 +23,5 @@ namespace MJPGSplitter
                 Buffer.Add(Input);
             }
         }
-
-        
     }
 }
