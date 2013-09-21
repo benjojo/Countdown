@@ -33,7 +33,6 @@ namespace MJPGModuleTest
         static void c_TestImage(Object sender, NewImageEventArgs e)
         {
             Console.WriteLine("I've got a image!!1");
-            Environment.Exit(0);
         }
     }
 }
