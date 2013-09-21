@@ -36,17 +36,25 @@ namespace MJPGSplitter
 
         private void CheckForJPEGHeaders()
         {
-            int track = 0;
-            for (int i = BufferPointer - 12; i < BufferPointer; i++)
+            try
             {
-                if (Buffer[BufferPointer] != JPEGHeader[track])
+                int track = -12;
+                foreach (byte TestByte in JPEGHeader)
                 {
-                    return;
+                    int debughelper = BufferPointer + track;
+                    if (Buffer[debughelper] != TestByte)
+                    {
+                        return;
+                    }
+                    track++;
                 }
-                track++;
+                //oshit call the cops
+                DecodeAndFlush(BufferPointer - 12);
             }
-            //oshit call the cops
-            DecodeAndFlush(BufferPointer - 12);
+            catch
+            {
+
+            }
         }
 
         private byte[] ExtractFromArray(int stoppoint)
@@ -88,6 +96,7 @@ namespace MJPGSplitter
             }
             catch
             {
+                Console.WriteLine("Failed to decode buffer");
                 //NOTHING BAD EVER HAPPENED.
             }
         }
