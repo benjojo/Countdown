@@ -34,7 +34,7 @@ namespace MJPGSplitter
             }
         }
 
-        public void CheckForJPEGHeaders()
+        private void CheckForJPEGHeaders()
         {
             int track = 0;
             for (int i = BufferPointer - 12; i < BufferPointer; i++)
@@ -49,12 +49,7 @@ namespace MJPGSplitter
             DecodeAndFlush(BufferPointer - 12);
         }
 
-        private int threshold;
-        private int total;
-
-
-
-        public byte[] ExtractFromArray(int stoppoint)
+        private byte[] ExtractFromArray(int stoppoint)
         {
             byte[] SendBack = new byte[stoppoint];
             // JPEG.
@@ -80,7 +75,7 @@ namespace MJPGSplitter
             return SendBack;
         }
 
-        public void DecodeAndFlush(int x)
+        private void DecodeAndFlush(int x)
         {
             // Get the byte array of JPEG
             try
