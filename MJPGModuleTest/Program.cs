@@ -11,14 +11,14 @@ namespace MJPGModuleTest
         {
             MJPEGDecode Decoder = new MJPEGDecode();
             Decoder.NewImage += c_TestImage;
-
+            /*
             byte[] TestFile = File.ReadAllBytes("../../../aaa.mjpeg");
-            Decoder.GiveData(TestFile);
+            Decoder.GiveData(TestFile);*/
             /*foreach (byte A in TestFile)
             {
                 
             }*/
-            /*
+            
             using (Stream stdin = Console.OpenStandardInput())
             {
                 byte[] buffer = new byte[12];
@@ -27,7 +27,7 @@ namespace MJPGModuleTest
                 {
                     Decoder.GiveData(buffer);
                 }
-            }*/
+            }
         }
 
         static void c_TestImage(Object sender, NewImageEventArgs e)

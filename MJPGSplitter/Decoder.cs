@@ -86,12 +86,12 @@ namespace MJPGSplitter
         private void DecodeAndFlush(int x)
         {
             DecodeCount++;
+            if(DecodeCount % 10 == 0)
+                Console.Title = DecodeCount + "";
             // Get the byte array of JPEG
             try
             {
-                byte[] aaa = ExtractFromArray(BufferPointer); // debug
-                File.WriteAllBytes("./test"+DecodeCount+".jpg", aaa);
-                MemoryStream JPEGRAW = new MemoryStream(aaa);
+                MemoryStream JPEGRAW = new MemoryStream(ExtractFromArray(BufferPointer));
                 Image MaybeJPEG = Image.FromStream(JPEGRAW); // I have no idea if its gonna be able to do this.
                 NewImageEventArgs args = new NewImageEventArgs();
                 args.DecodedOutput = new Bitmap(MaybeJPEG);
