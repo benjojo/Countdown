@@ -23,7 +23,7 @@ namespace MJPGSplitter
         private byte[] Buffer = new byte[500 * 1024]; // 500k buffer.
         private int BufferPointer = 0;
         public delegate void NewImageHandler(object sender, EventArgs data);
-
+        private int DecodeCount = 0;
         public void GiveData(byte[] Inbound)
         {
             foreach (byte Input in Inbound)
@@ -49,7 +49,7 @@ namespace MJPGSplitter
                     track++;
                 }
                 //oshit call the cops
-                DecodeAndFlush(BufferPointer - 12);
+                DecodeAndFlush(BufferPointer);
             }
             catch
             {
@@ -70,25 +70,28 @@ namespace MJPGSplitter
             // Clear the buffer
             for (int i = 0; i < Buffer.Length; i++)
             {
-                SendBack[i] = 0x00;
+                Buffer[i] = 0x00;
             }
 
             // Put the JPEG header back in the buffer
-            for (int i = 0; i < JPEGHeader.Length; i++)
+            for (int i = 2; i < JPEGHeader.Length; i++)
             {
-                Buffer[i] = JPEGHeader[i];
+                Buffer[i-2] = JPEGHeader[i];
             }
-            BufferPointer = JPEGHeader.Length;
+            BufferPointer = 10;
 
             return SendBack;
         }
 
         private void DecodeAndFlush(int x)
         {
+            DecodeCount++;
             // Get the byte array of JPEG
             try
             {
-                MemoryStream JPEGRAW = new MemoryStream(ExtractFromArray(BufferPointer - 12));
+                byte[] aaa = ExtractFromArray(BufferPointer); // debug
+                File.WriteAllBytes("./test"+DecodeCount+".jpg", aaa);
+                MemoryStream JPEGRAW = new MemoryStream(aaa);
                 Image MaybeJPEG = Image.FromStream(JPEGRAW); // I have no idea if its gonna be able to do this.
                 NewImageEventArgs args = new NewImageEventArgs();
                 args.DecodedOutput = new Bitmap(MaybeJPEG);
