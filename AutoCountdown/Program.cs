@@ -43,6 +43,25 @@ namespace AutoCountdown
             decodecount++;
         }
 
+        static string OCRText(Bitmap Input)
+        {
+            Input.Save("./tmp.png");
+
+            var proc = new System.Diagnostics.Process();
+            var info = new System.Diagnostics.ProcessStartInfo();
+            info.FileName = @"C:\Program Files (x86)\Tesseract-OCR\tesseract";
+            info.Arguments= @"tmp.png out";
+            proc.StartInfo = info;
+            proc.Start();
+            proc.WaitForExit();
+
+            File.Delete("./tmp.png");
+            string output = File.ReadAllText("./out.txt");
+
+            File.Delete("./out.txt");
+            return output;
+        }
+
         static Bitmap CropToText(Bitmap Input)
         {
             int Top = 272;
