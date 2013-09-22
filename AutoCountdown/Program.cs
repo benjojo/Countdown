@@ -53,14 +53,14 @@ namespace AutoCountdown
                 Searcher Words = new Searcher(letters);
                 int limit = 0;
                 var aaa = Words.Results.OrderBy(key => key.Value);
-                
+                string results = "For '"+letters+"' ";
                 foreach (KeyValuePair<string, int> item in aaa)
                 {
                     if (Words.Results.Count < (limit + 3))
-                        Console.WriteLine("Word {0} is {1} letters long", item.Key, item.Value);
+                        results += string.Format("Word {0} is {1} letters long. ", item.Key, item.Value);
                     limit++;
                 }
-                //FramesTimeOut = 2000;
+                FramesTimeOut = 2000;
                 return;
             }
         }
@@ -81,7 +81,6 @@ namespace AutoCountdown
 
             File.Delete("./tmp.png");
             string output = File.ReadAllText("./out.txt");
-
             File.Delete("./out.txt");
             return output;
         }
