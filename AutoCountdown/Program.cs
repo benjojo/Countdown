@@ -28,9 +28,15 @@ namespace AutoCountdown
             Decoder.GiveData(TestFile);
         }
         static int decodecount = 0;
+        static int FramesTimeOut = 0;
         static void IncomingImage(Object sender, NewImageEventArgs e)
         {
-            //return;
+            decodecount++;
+            if (FramesTimeOut != 0)
+            {
+                FramesTimeOut--;
+                return;
+            }
             Bitmap Output = e.DecodedOutput;
             // First test to see if its the frame we want.
             Color Target = Color.FromArgb(255, 49, 76, 153);
@@ -41,10 +47,10 @@ namespace AutoCountdown
             {
                 Console.WriteLine("We seem to have a frame that matches what we want.");
                 Bitmap ToBeOCR = CropToText(Output);
-                Console.WriteLine("THE TEXT IS {0}" + OCRText(ToBeOCR));
+                Console.WriteLine("THE TEXT IS {0}", OCRText(ToBeOCR));
+                FramesTimeOut = 2000;
                 return;
             }
-            decodecount++;
         }
 
         static string OCRText(Bitmap Input)
@@ -55,6 +61,8 @@ namespace AutoCountdown
             var info = new System.Diagnostics.ProcessStartInfo();
             info.FileName = @"C:\Program Files (x86)\Tesseract-OCR\tesseract";
             info.Arguments= @"tmp.png out";
+            info.RedirectStandardInput = true;
+            info.UseShellExecute = false;
             proc.StartInfo = info;
             proc.Start();
             proc.WaitForExit();
