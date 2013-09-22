@@ -5,6 +5,8 @@ using MJPGSplitter;
 using System.Diagnostics;
 using System.Linq;
 using System.Collections.Generic;
+using TinyTwitter;
+
 namespace AutoCountdown
 {
     class Program
