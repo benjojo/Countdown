@@ -48,7 +48,7 @@ namespace MJPGSplitter
                     }
                     track++;
                 }
-                //oshit call the cops
+                //oshit call the flusher
                 DecodeAndFlush(BufferPointer);
             }
             catch
@@ -92,7 +92,7 @@ namespace MJPGSplitter
             try
             {
                 MemoryStream JPEGRAW = new MemoryStream(ExtractFromArray(BufferPointer));
-                Image MaybeJPEG = Image.FromStream(JPEGRAW); // I have no idea if its gonna be able to do this.
+                Image MaybeJPEG = Image.FromStream(JPEGRAW);
                 NewImageEventArgs args = new NewImageEventArgs();
                 args.DecodedOutput = new Bitmap(MaybeJPEG);
                 OnNewImage(args);
@@ -102,7 +102,7 @@ namespace MJPGSplitter
             catch
             {
                 Console.WriteLine("Failed to decode buffer");
-                //NOTHING BAD EVER HAPPENED.
+                //This can happen from time to time, Not always the users fault.
             }
         }
 
