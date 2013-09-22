@@ -96,3 +96,4 @@ Backup*/
 UpgradeLog*.XML
 *.avi
 *.mjpeg
+*.cfg
