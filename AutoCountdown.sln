@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MJPGSplitter", "MJPGSplitte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MJPGModuleTest", "MJPGModuleTest\MJPGModuleTest.csproj", "{2E839612-A7CC-4F29-96EE-B6581323B476}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDownTest", "CDownTest\CDownTest.csproj", "{DBD7D9B9-2FDF-409D-8689-40CC03088088}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{2E839612-A7CC-4F29-96EE-B6581323B476}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E839612-A7CC-4F29-96EE-B6581323B476}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E839612-A7CC-4F29-96EE-B6581323B476}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBD7D9B9-2FDF-409D-8689-40CC03088088}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBD7D9B9-2FDF-409D-8689-40CC03088088}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBD7D9B9-2FDF-409D-8689-40CC03088088}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBD7D9B9-2FDF-409D-8689-40CC03088088}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
