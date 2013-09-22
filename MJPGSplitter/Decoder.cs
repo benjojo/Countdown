@@ -96,6 +96,8 @@ namespace MJPGSplitter
                 NewImageEventArgs args = new NewImageEventArgs();
                 args.DecodedOutput = new Bitmap(MaybeJPEG);
                 OnNewImage(args);
+                MaybeJPEG.Dispose();
+                JPEGRAW.Dispose();
             }
             catch
             {
