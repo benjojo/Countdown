@@ -33,11 +33,11 @@ namespace AutoCountdown
             Bitmap Output = e.DecodedOutput;
             // First test to see if its the frame we want.
             Color Target = Color.FromArgb(255, 49, 76, 153);
-            int Tolerance = 5;
-
-            if (FrameCycle(Output, Target, Tolerance, 5) && FrameCycle(Output, Target, Tolerance, 500))
+            int Tolerance = 15;
+            if(decodecount%10 == 0)
+                Console.WriteLine("Decoding Frame {0}", decodecount);
+            if (FrameCycle(Output, Target, Tolerance, 5) && FrameCycle(Output, Target, Tolerance, 560))
             {
-                Output.Save("./img" + decodecount + ".jpg");
                 Console.WriteLine("We seem to have a frame that matches what we want.");
             }
             decodecount++;
@@ -66,7 +66,7 @@ namespace AutoCountdown
 
         static bool NumberTol(int input, int target, int tol)
         {
-            return (target + tol < input && target - tol > input);
+            return (target + tol > input && target - tol < input);
         }
     }
 }
