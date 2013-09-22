@@ -23,27 +23,43 @@ namespace AutoCountdown
                 }
             }
 
-            for (int i = 0; i < 9; i++)
-                letters[i] = starter.Substring(i, 1);
+
 
             Dictionary = File.ReadAllLines("../../../dict.txt");
+            //string[] letterss = letters;
             foreach (string word in Dictionary)
             {
-                if (word.Length <= 9 && FitsIn(word,letters))
+                if (FitsIn(word.ToUpper(), starter))
                 {
-                    Console.WriteLine("Word {0} matches",word);
+                    Console.WriteLine("Word {0} matches", word);
                 }
             }
         }
 
 
-        private bool FitsIn(string word, string[] letters)
+        private bool FitsIn(string word, string OnTheTable)
         {
+            string[] letters = new string[9];
+            for (int i = 0; i < 9; i++)
+                letters[i] = OnTheTable.Substring(i, 1);
+
             for (int i = 0; i < word.Length; i++)
             {
                 string let = word.Substring(i, 1);
                 if (!letters.Contains(let))
                     return false;
+                else
+                {
+                    // Scan though and remove that one to ensure its not used again.
+                    for (int n = 0; n < letters.Length; n++)
+                    {
+                        if (letters[n] == let)
+                        {
+                            letters[n] = "";
+                            break;
+                        }
+                    }
+                }
             }
             return true;
         }
