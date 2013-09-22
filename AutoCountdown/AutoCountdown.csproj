@@ -38,8 +38,10 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Img.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Words.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
