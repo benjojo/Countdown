@@ -2,6 +2,7 @@
 using System.IO;
 using System.Drawing;
 using MJPGSplitter;
+using System.Diagnostics;
 
 namespace AutoCountdown
 {
@@ -12,7 +13,7 @@ namespace AutoCountdown
             MJPEGDecode Decoder = new MJPEGDecode();
             Decoder.NewImage += IncomingImage;
 
-            
+            /*
             using (Stream stdin = Console.OpenStandardInput())
             {
                 byte[] buffer = new byte[12];
@@ -21,10 +22,10 @@ namespace AutoCountdown
                 {
                     Decoder.GiveData(buffer);
                 }
-            }
-            /*
-            byte[] TestFile = File.ReadAllBytes("../../../aaa.mjpeg");
-            Decoder.GiveData(TestFile);*/
+            }*/
+            
+            byte[] TestFile = File.ReadAllBytes("../../../../xab");
+            Decoder.GiveData(TestFile);
         }
         static int decodecount = 0;
         static void IncomingImage(Object sender, NewImageEventArgs e)
@@ -39,6 +40,9 @@ namespace AutoCountdown
             if (FrameCycle(Output, Target, Tolerance, 5) && FrameCycle(Output, Target, Tolerance, 560))
             {
                 Console.WriteLine("We seem to have a frame that matches what we want.");
+                Bitmap ToBeOCR = CropToText(Output);
+                Console.WriteLine("THE TEXT IS {0}" + OCRText(ToBeOCR));
+                return;
             }
             decodecount++;
         }
@@ -104,6 +108,7 @@ namespace AutoCountdown
             }
             return Returner;
         }
+
         static bool FrameCycle(Bitmap Output,Color Target, int Tolerance,int Shift)
         {
             for (int n = 0; n < 50; n = n + 5)
