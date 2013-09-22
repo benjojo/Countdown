@@ -29,7 +29,7 @@ namespace AutoCountdown
 
         static void IncomingImage(Object sender, NewImageEventArgs e)
         {
-            return;
+            //return;
             Bitmap Output = e.DecodedOutput;
             // First test to see if its the frame we want.
             Color Target = Color.FromArgb(255, 49, 76, 153);
