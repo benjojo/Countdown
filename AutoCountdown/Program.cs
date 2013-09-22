@@ -26,25 +26,36 @@ namespace AutoCountdown
             byte[] TestFile = File.ReadAllBytes("../../../aaa.mjpeg");
             Decoder.GiveData(TestFile);*/
         }
-
+        static int decodecount = 0;
         static void IncomingImage(Object sender, NewImageEventArgs e)
         {
             //return;
             Bitmap Output = e.DecodedOutput;
             // First test to see if its the frame we want.
             Color Target = Color.FromArgb(255, 49, 76, 153);
-            int Tolerance = 10;
-            for (int i = 300; i < 350; i++)
+            int Tolerance = 5;
+            int Shift = 5;
+            if (FrameCycle(Output, Target, Tolerance, 5) && FrameCycle(Output, Target, Tolerance, 500))
             {
-                // Move the way down though the image to check.
-                Color Pixel = Output.GetPixel(5, i);
-                if (!ColTestWTolerance(Pixel, Target, Tolerance))
-                    return;
+                Output.Save("./img" + decodecount + ".jpg");
+                Console.WriteLine("We seem to have a frame that matches what we want.");
             }
-            Console.WriteLine("We seem to have a frame that matches what we want.");
+            decodecount++;
         }
 
-
+        static bool FrameCycle(Bitmap Output,Color Target, int Tolerance,int Shift)
+        {
+            for (int n = 0; n < 50; n = n + 5)
+            {
+                for (int i = 0; i < 50; i++)
+                {
+                    Color Pixel = Output.GetPixel(5 + n, 300 + i);
+                    if (!ColTestWTolerance(Pixel, Target, Tolerance))
+                        return false;
+                }
+            }
+            return true;
+        }
         static bool ColTestWTolerance(Color Input, Color Target, int Tolerance)
         {
             if (NumberTol(Input.R, Target.R, Tolerance) && NumberTol(Input.G, Target.G, Tolerance) && NumberTol(Input.B, Target.B, Tolerance))
