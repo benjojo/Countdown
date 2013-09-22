@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.IO;
+using System.Collections.Generic;
 
 namespace AutoCountdown
 {
@@ -8,6 +9,7 @@ namespace AutoCountdown
     {
         private string[] letters = new string[9];
         private string[] Dictionary = new string[1];
+        public Dictionary<string, int> Results = new Dictionary<string, int>();
         public Searcher(string starter)
         {
             if (starter.Trim().Replace("\n\n","").Length != 9)
@@ -31,7 +33,10 @@ namespace AutoCountdown
             {
                 if (FitsIn(word.ToUpper(), starter))
                 {
-                    Console.WriteLine("Word {0} matches", word);
+                    if (word.Length > 5)
+                    {
+                        Results.Add(word, word.Length);
+                    }
                 }
             }
         }

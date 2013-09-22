@@ -3,7 +3,8 @@ using System.IO;
 using System.Drawing;
 using MJPGSplitter;
 using System.Diagnostics;
-
+using System.Linq;
+using System.Collections.Generic;
 namespace AutoCountdown
 {
     class Program
@@ -49,7 +50,17 @@ namespace AutoCountdown
                 Bitmap ToBeOCR = Img.CropToText(Output);
                 string letters = OCRText(ToBeOCR);
                 Console.WriteLine("THE TEXT IS {0}", letters);
-                new Searcher(letters);
+                Searcher Words = new Searcher(letters);
+                int limit = 0;
+                foreach (KeyValuePair<string, int> item in Words.Results.OrderBy(key => key.Value))
+                {
+                    if (limit == 6)
+                        break;
+
+                    Console.WriteLine("Word {0} is {1} letters long", item.Key, item.Value);
+                    limit++;
+                    // do something with item.Key and item.Value
+                }
                 //FramesTimeOut = 2000;
                 return;
             }
