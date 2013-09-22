@@ -27,7 +27,7 @@ namespace AutoCountdown
 
 
 
-            Dictionary = File.ReadAllLines("../../../dict.txt");
+            Dictionary = File.ReadAllLines("./dict.txt");
             //string[] letterss = letters;
             foreach (string word in Dictionary)
             {
