@@ -66,14 +66,7 @@ namespace AutoCountdown
 
         static bool NumberTol(int input, int target, int tol)
         {
-            if (target - tol > input && input < target + tol)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (target + tol < input && target - tol > input);
         }
     }
 }
