@@ -34,7 +34,7 @@ namespace AutoCountdown
             // First test to see if its the frame we want.
             Color Target = Color.FromArgb(255, 49, 76, 153);
             int Tolerance = 5;
-            int Shift = 5;
+
             if (FrameCycle(Output, Target, Tolerance, 5) && FrameCycle(Output, Target, Tolerance, 500))
             {
                 Output.Save("./img" + decodecount + ".jpg");
@@ -49,7 +49,7 @@ namespace AutoCountdown
             {
                 for (int i = 0; i < 50; i++)
                 {
-                    Color Pixel = Output.GetPixel(5 + n, 300 + i);
+                    Color Pixel = Output.GetPixel(Shift + n, 300 + i);
                     if (!ColTestWTolerance(Pixel, Target, Tolerance))
                         return false;
                 }
