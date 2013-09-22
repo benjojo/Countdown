@@ -5,7 +5,6 @@ namespace AutoCountdown
 {
     class Img
     {
-
         static public Bitmap CropToText(Bitmap Input)
         {
             int Top = 272;

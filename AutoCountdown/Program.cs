@@ -47,8 +47,10 @@ namespace AutoCountdown
             {
                 Console.WriteLine("We seem to have a frame that matches what we want.");
                 Bitmap ToBeOCR = Img.CropToText(Output);
-                Console.WriteLine("THE TEXT IS {0}", OCRText(ToBeOCR));
-                FramesTimeOut = 2000;
+                string letters = OCRText(ToBeOCR);
+                Console.WriteLine("THE TEXT IS {0}", letters);
+                new Searcher(letters);
+                //FramesTimeOut = 2000;
                 return;
             }
         }
