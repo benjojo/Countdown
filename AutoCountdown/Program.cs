@@ -60,6 +60,7 @@ namespace AutoCountdown
                         results += string.Format("Word {0} is {1} letters long. ", item.Key, item.Value);
                     limit++;
                 }
+                new Twitter().Tweet(results);
                 FramesTimeOut = 2000;
                 return;
             }
