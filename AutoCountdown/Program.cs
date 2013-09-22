@@ -34,11 +34,11 @@ namespace AutoCountdown
             // First test to see if its the frame we want.
             Color Target = Color.FromArgb(255, 49, 76, 153);
             int Tolerance = 10;
-            for (int i = 267; i < Output.Height; i++)
+            for (int i = 300; i < 350; i++)
             {
                 // Move the way down though the image to check.
-                Color Pixel = Output.GetPixel(10, i);
-                if(!ColTestWTolerance(Pixel, Target , Tolerance))
+                Color Pixel = Output.GetPixel(5, i);
+                if (!ColTestWTolerance(Pixel, Target, Tolerance))
                     return;
             }
             Console.WriteLine("We seem to have a frame that matches what we want.");
