@@ -16,7 +16,7 @@ namespace AutoCountdown
             MJPEGDecode Decoder = new MJPEGDecode();
             Decoder.NewImage += IncomingImage;
 
-            /*
+            
             using (Stream stdin = Console.OpenStandardInput())
             {
                 byte[] buffer = new byte[12];
@@ -25,10 +25,10 @@ namespace AutoCountdown
                 {
                     Decoder.GiveData(buffer);
                 }
-            }*/
-            
+            }
+            /*
             byte[] TestFile = File.ReadAllBytes("../../../../xab");
-            Decoder.GiveData(TestFile);
+            Decoder.GiveData(TestFile);*/
         }
         static int decodecount = 0;
         static int FramesTimeOut = 0;

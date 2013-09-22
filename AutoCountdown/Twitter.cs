@@ -17,7 +17,7 @@ namespace AutoCountdown
             TInfo.AccessSecret = creds[3];
             TinyTwitter.TinyTwitter Manager = new TinyTwitter.TinyTwitter(TInfo);
 
-            Manager.UpdateStatus(text);
+            Manager.UpdateStatus(text.Replace("\n\n",""));
 
         }
     }
