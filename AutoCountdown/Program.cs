@@ -52,14 +52,13 @@ namespace AutoCountdown
                 Console.WriteLine("THE TEXT IS {0}", letters);
                 Searcher Words = new Searcher(letters);
                 int limit = 0;
-                foreach (KeyValuePair<string, int> item in Words.Results.OrderBy(key => key.Value))
+                var aaa = Words.Results.OrderBy(key => key.Value);
+                
+                foreach (KeyValuePair<string, int> item in aaa)
                 {
-                    if (limit == 6)
-                        break;
-
-                    Console.WriteLine("Word {0} is {1} letters long", item.Key, item.Value);
+                    if (Words.Results.Count < (limit + 3))
+                        Console.WriteLine("Word {0} is {1} letters long", item.Key, item.Value);
                     limit++;
-                    // do something with item.Key and item.Value
                 }
                 //FramesTimeOut = 2000;
                 return;
