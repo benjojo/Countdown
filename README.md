@@ -2,7 +2,7 @@ Countdown
 ==========
 
 # What
-This is a system that can watch countdown (if fed the video stream for it) and then decode the letters
+This is a system that can watch [Countdown](http://www.youtube.com/watch?v=o0SrIqaplKo) (if fed the video stream for it) and then decode the letters
 that are being offered, then tweet the responce in speed. The system runs at around 100FPS on a i5 Laptop
 far greater then the input rate of 25 FPS from TV.
 
@@ -49,5 +49,3 @@ Once the winning words are calculated, `Tinytwitter` is used to post the tweet. 
 
 Right now there are a few hardcoded paths to things like tesseract.
 While the system should run under mono, the paths for tesseract need to be fixed for that to happen.
-
-
