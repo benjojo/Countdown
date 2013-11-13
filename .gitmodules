@@ -1,3 +1,3 @@
 [submodule "twitterlib"]
 	path = twitterlib
-	url = git@github.com:jmhdez/TinyTwitter.git
+	url = https://github.com/jmhdez/TinyTwitter.git
