@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Express 2012 for Windows Desktop
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoCountdown", "AutoCountdown\AutoCountdown.csproj", "{D80E81EB-4CAC-4309-9CC5-FFFD41CC00C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MJPGSplitter", "MJPGSplitter\MJPGSplitter.csproj", "{42E72F24-BFCB-4A55-AD1A-31A921933033}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyTwitter", "twitterlib\src\TinyTwitter\TinyTwitter.csproj", "{5E698658-C780-4614-B1E2-E98F6B550AFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +19,6 @@ Global
 		{42E72F24-BFCB-4A55-AD1A-31A921933033}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42E72F24-BFCB-4A55-AD1A-31A921933033}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42E72F24-BFCB-4A55-AD1A-31A921933033}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5E698658-C780-4614-B1E2-E98F6B550AFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E698658-C780-4614-B1E2-E98F6B550AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E698658-C780-4614-B1E2-E98F6B550AFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E698658-C780-4614-B1E2-E98F6B550AFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

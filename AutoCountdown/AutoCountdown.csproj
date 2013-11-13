@@ -35,6 +35,9 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="TinyTwitter">
+      <HintPath>..\TinyTwitter.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Img.cs" />
@@ -45,18 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="config.cfg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MJPGSplitter\MJPGSplitter.csproj">
       <Project>{42e72f24-bfcb-4a55-ad1a-31a921933033}</Project>
       <Name>MJPGSplitter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\twitterlib\src\TinyTwitter\TinyTwitter.csproj">
-      <Project>{5e698658-c780-4614-b1e2-e98f6b550afb}</Project>
-      <Name>TinyTwitter</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
