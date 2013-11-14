@@ -20,7 +20,6 @@ namespace AutoCountdown
             using (Stream stdin = Console.OpenStandardInput())
             {
                 byte[] buffer = new byte[12];
-                int bytes;
                 while ((bytes = stdin.Read(buffer, 0, buffer.Length)) > 0)
                 {
                     Decoder.GiveData(buffer);
