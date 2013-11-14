@@ -7,7 +7,6 @@ namespace AutoCountdown
 {
     class Searcher
     {
-        private string[] letters = new string[9];
         private string[] Dictionary = new string[1];
         public Dictionary<string, int> Results = new Dictionary<string, int>();
         public Searcher(string starter)
