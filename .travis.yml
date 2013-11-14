@@ -1,6 +1,6 @@
 language: c
 install:
-- sudo su -c "echo \"deb http://ftp.us.debian.org/debian sid main\" >> /etc/apt/sources.list"
+- sudo add-apt-repository ppa:directhex/monoxide
 - sudo apt-get update
 - sudo apt-get install --force-yes mono-devel mono-gmcs nunit-console
 script:
