@@ -2,7 +2,7 @@ language: c
 install:
 - sudo su -c "echo \"deb http://ftp.de.debian.org/debian sid main\" >> /etc/apt/sources.list"
 - sudo apt-get update
-- sudo apt-get install mono-devel mono-gmcs nunit-console
+- sudo apt-get install --force-yes mono-devel mono-gmcs nunit-console
 script:
 - xbuild ./AutoCountdown.sln
 
