@@ -1,4 +1,4 @@
-Countdown
+Countdown [![Build Status](https://travis-ci.org/benjojo/Countdown.png?branch=master)](https://travis-ci.org/benjojo/Countdown)
 ==========
 
 # What
