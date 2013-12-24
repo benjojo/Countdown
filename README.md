@@ -41,6 +41,7 @@ The 'box' is then processed to find the bright parts (the text) then outputted t
 
 This file is then passed to `tesseract` in order to do OCR, the result is then read out.
 
+![Twpost](http://i.imgur.com/WmsrRcA.png)
 ## Twitter posting
 
 Once the winning words are calculated, `Tinytwitter` is used to post the tweet. (Patch for API 1.1 is coming.)
