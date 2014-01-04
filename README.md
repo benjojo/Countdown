@@ -3,7 +3,7 @@ Countdown [![Build Status](https://travis-ci.org/benjojo/Countdown.png?branch=ma
 
 # What
 This is a system that can watch [Countdown](http://www.youtube.com/watch?v=o0SrIqaplKo) (if fed the video stream for it) and then decode the letters
-that are being offered, then tweet the responce in speed. The system runs at around 100FPS on a i5 Laptop
+that are being offered, then tweet the response in speed. The system runs at around 100FPS on an i5 Laptop
 far greater then the input rate of 25 FPS from TV.
 
 ## Contained inside
