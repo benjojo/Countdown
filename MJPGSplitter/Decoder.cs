@@ -26,12 +26,22 @@ namespace MJPGSplitter
         private int DecodeCount = 0;
         public void GiveData(byte[] Inbound)
         {
-            foreach (byte Input in Inbound)
+            try
             {
-                Buffer[BufferPointer] = Input;
-                BufferPointer++;
-                CheckForJPEGHeaders();
+                foreach (byte Input in Inbound)
+                {
+                    Buffer[BufferPointer] = Input;
+                    BufferPointer++;
+                    CheckForJPEGHeaders();
+                }
             }
+            catch
+            {
+                Console.WriteLine("*Cough* *Splutter*");
+                DecodeAndFlush(BufferPointer);
+            }
+
+
         }
 
         private void CheckForJPEGHeaders()
