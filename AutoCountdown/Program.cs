@@ -74,7 +74,7 @@ namespace AutoCountdown
 
             var proc = new System.Diagnostics.Process();
             var info = new System.Diagnostics.ProcessStartInfo();
-            info.FileName = @"C:\Program Files (x86)\Tesseract-OCR\tesseract";
+            info.FileName = @"tesseract";
             info.Arguments= @"tmp.png out";
             info.RedirectStandardInput = true;
             info.UseShellExecute = false;
