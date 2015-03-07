@@ -30,7 +30,7 @@ namespace AutoCountdown
             //string[] letterss = letters;
             foreach (string word in Dictionary)
             {
-                if (FitsIn(word.ToUpper(), starter))
+                if (FitsIn(word.ToUpper(), starter.ToUpper()))
                 {
                     if (word.Length > 5)
                     {
