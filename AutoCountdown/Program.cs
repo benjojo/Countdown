@@ -26,9 +26,12 @@ namespace AutoCountdown
                     Decoder.GiveData(buffer);
                 }
             }
-            /*
-            byte[] TestFile = File.ReadAllBytes("../../../../xab");
-            Decoder.GiveData(TestFile);*/
+            
+            //byte[] TestFile = File.ReadAllBytes("../../../cntdwn.mjpeg");
+            
+            //byte[] TestFile = File.ReadAllBytes("urgh.mjpeg");
+            //Decoder.GiveData(TestFile);
+           
         }
         static int decodecount = 0;
         static int FramesTimeOut = 0;
@@ -69,10 +72,33 @@ namespace AutoCountdown
                         results += string.Format("Word {0} is {1} letters long. ", item.Key, item.Value);
                     limit++;
                 }
-                new Twitter().Tweet(results);
+                Console.WriteLine(results);
                 FramesTimeOut = 2000;
+                if (limit != 0)
+                {
+                    Tweet(results, Output);
+                    // new Twitter().Tweet(results);
+                }
                 return;
             }
+        }
+
+
+        static public void Tweet(string tweet_text, Bitmap Input)
+        {
+            Input.Save("./tmp.png");
+
+            var proc = new System.Diagnostics.Process();
+            var info = new System.Diagnostics.ProcessStartInfo();
+            info.FileName = @"t";
+            info.Arguments = string.Format("update -f tmp.png '{0}'",tweet_text.Replace("'","\'"));
+            info.RedirectStandardInput = true;
+            info.UseShellExecute = false;
+            proc.StartInfo = info;
+            proc.Start();
+            proc.WaitForExit();
+
+            File.Delete("./tmp.png");
         }
 
         static public string OCRText(Bitmap Input)
