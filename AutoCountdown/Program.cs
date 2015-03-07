@@ -42,16 +42,23 @@ namespace AutoCountdown
             }
             Bitmap Output = e.DecodedOutput;
             // First test to see if its the frame we want.
-            Color Target = Color.FromArgb(255, 49, 76, 153);
-            int Tolerance = 15;
+            Color Target = Color.FromArgb(255, 56, 74, 130);
+            int Tolerance = 45;
             if(decodecount%10 == 0)
                 Console.WriteLine("Decoding Frame {0}", decodecount);
-            if (Img.FrameCycle(Output, Target, Tolerance, 5) && Img.FrameCycle(Output, Target, Tolerance, 560))
+            if (Img.FrameCycle(Output, Target, Tolerance, 50) && Img.FrameCycle(Output, Target, Tolerance, 615))
             {
                 Console.WriteLine("We seem to have a frame that matches what we want.");
                 Bitmap ToBeOCR = Img.CropToText(Output);
                 string letters = OCRText(ToBeOCR);
+                FramesTimeOut = 5;
+                if (letters.Trim() == "" || letters.Length < 5)
+                {
+                    return;
+                }
+                letters = letters.Trim(new char[] { '\r', '\n', ' ' });
                 Console.WriteLine("THE TEXT IS {0}", letters);
+
                 Searcher Words = new Searcher(letters);
                 int limit = 0;
                 var aaa = Words.Results.OrderBy(key => key.Value);
