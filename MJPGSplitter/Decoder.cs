@@ -61,9 +61,10 @@ namespace MJPGSplitter
                 //oshit call the flusher
                 DecodeAndFlush(BufferPointer);
             }
-            catch
+            catch (Exception e)
             {
-
+                Console.WriteLine("Failed to check for JPEG headers in buffer {0}", e.Message);
+                //This can happen from time to time, Not always the users fault.
             }
         }
 
@@ -109,9 +110,9 @@ namespace MJPGSplitter
                 MaybeJPEG.Dispose();
                 JPEGRAW.Dispose();
             }
-            catch
+            catch(Exception e)
             {
-                Console.WriteLine("Failed to decode buffer");
+                Console.WriteLine("Failed to decode buffer {0}",e.Message);
                 //This can happen from time to time, Not always the users fault.
             }
         }
